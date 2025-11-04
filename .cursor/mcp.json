@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "mcp_mysql_global": { 
+      "command": "docker", 
+      "args": [
+        "run", 
+        "-i", 
+        "--rm", 
+        "-e", "DB_HOST=demo-poc.c1a2si8mm232.ap-south-1.rds.amazonaws.com",
+        "-e", "DB_USER=admin", 
+        "-e", "DB_PASSWORD=Tink&7Mink", 
+        "-e", "DB_DATABASE=pos_poc_master", 
+        "-e", "DB_PORT=3308", 
+        "dheers/mcp_mysql_dheer", 
+        "node", 
+        "index.js" ] 
+      }
+  }
+}
+
+
