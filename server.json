@@ -1,0 +1,115 @@
+{
+ "name": "mcp-mysql-server",
+ "description": "MCP server for MySQL tasks.",
+ "version": "1.0.0",
+  "author": "Dheer",
+  "capabilities": {
+    "database": {
+      "type": "mysql",
+      "version": "8.0"
+    },
+    "language": {
+      "type": "javascript",
+      "version": "ES2020"
+    }
+  },
+  "tools": [
+    {
+      "name": "mcp_mysql_global_query",
+      "description": "Execute a SQL query on the MySQL database",
+      "endpoints": [
+        {
+          "name": "query",
+          "path": "/mysql/global/query",
+          "method": "POST",
+          "parameters": [
+            { "name": "sql", "type": "string", "required": true },
+            { "name": "params", "type": "array", "required": false }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mcp_mysql_global_list_tables",
+      "description": "List all tables in the database",
+      "endpoints": [
+        {
+          "name": "list_tables",
+          "path": "/mysql/global/list_tables",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "mcp_mysql_global_describe_table",
+      "description": "Get the structure/schema of a table",
+      "endpoints": [
+        {
+          "name": "describe_table",
+          "path": "/mysql/global/describe_table",
+          "method": "GET",
+          "parameters": [
+            { "name": "tableName", "type": "string", "required": true }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mcp_mysql_global_insert",
+      "description": "Insert a single row into a table",
+      "endpoints": [
+        {
+          "name": "insert",
+          "path": "/mysql/global/insert",
+          "method": "POST",
+          "parameters": [
+            { "name": "tableName", "type": "string", "required": true },
+            { "name": "data", "type": "object", "required": true }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mcp_mysql_global_update",
+      "description": "Update rows in a table",
+      "endpoints": [
+        {
+          "name": "update",
+          "path": "/mysql/global/update",
+          "method": "POST",
+          "parameters": [
+            { "name": "tableName", "type": "string", "required": true },
+            { "name": "data", "type": "object", "required": true },
+            { "name": "condition", "type": "string", "required": true }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mcp_mysql_global_delete",
+      "description": "Delete rows from a table based on a condition",
+      "endpoints": [
+        {
+          "name": "delete",
+          "path": "/mysql/global/delete",
+          "method": "POST",
+          "parameters": [
+            { "name": "tableName", "type": "string", "required": true },
+            { "name": "condition", "type": "string", "required": true }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mcp_mysql_global_connect_db",
+      "description": "Connect to the MySQL database",
+      "endpoints": [
+        {
+          "name": "connect_db",
+          "path": "/mysql/global/connect_db",
+          "method": "POST"
+        }
+      ]
+    }
+  ]
+}
